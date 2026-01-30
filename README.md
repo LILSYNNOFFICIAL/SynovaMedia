@@ -1,0 +1,2 @@
+# SynovaMedia
+Website for SynovaMedia
