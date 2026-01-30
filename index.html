@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Synova Media – AI Tools • TikTok Insights • Psychic AI • Neon Music</title>
+  <meta name="description" content="Discover AI tools, real-time TikTok analytics, multidimensional psychic intelligence, and independent music under SYNTIENT RECORDS.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #000814;
+      --text:      #f8f9fa;
+      --text-dim:  #c0d0e0;
+      --accent:    #00d4ff;
+      --border:    rgba(0,212,255,0.10);
+      --radius:    8px;
+      --transition: 0.2s ease;
+      --nav-height: 64px;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(0,8,20,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      font-size: 0.88rem;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.3px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: var(--text);
+      transition: var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-links a,
+    .nav-item > a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: var(--transition);
+      padding: 0.5rem 0;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-item:hover > a {
+      color: var(--accent);
+    }
+
+    /* Dropdown: plain left-aligned small text, full background */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #0a162b;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.8rem 1.8rem;
+      min-width: 260px;
+      width: max-content;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+      z-index: 999;
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 0.6rem 0;
+      color: var(--text-dim);
+      white-space: nowrap;
+      transition: var(--transition);
+      text-align: left;
+    }
+
+    .dropdown a:hover {
+      color: var(--accent);
+      padding-left: 1rem;
+    }
+
+    /* Mobile hamburger + dropdown behavior */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: rgba(0,8,20,0.98);
+        padding: 1rem 0;
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+      .nav-links.active { display: flex; }
+      .nav-item { width: 100%; text-align: center; }
+      .dropdown {
+        position: static;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0.5rem 2rem;
+        min-width: unset;
+        width: 100%;
+        text-align: left;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+      }
+      .nav-item.open .dropdown { display: block; }
+      .dropdown a { padding: 0.8rem 0; text-align: left; }
+    }
+
+    /* Hero & content */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5vw 4rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #fff, var(--accent) 60%, #e0f7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .tagline { font-size: clamp(1.3rem, 4vw, 1.8rem); max-width: 900px; margin-bottom: 1.6rem; opacity: 0.95; }
+    .sub { font-size: 1.15rem; max-width: 720px; opacity: 0.82; margin-bottom: 2.2rem; }
+    #countdown { font-size: 1.35rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
+
+    .btn {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.9rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000814;
+      box-shadow: 0 0 32px rgba(0,212,255,0.35);
+    }
+
+    main { padding-top: calc(var(--nav-height) + 40px); padding-bottom: 80px; }
+    section { margin-bottom: 6rem; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    section.visible { opacity: 1; transform: none; }
+    .glass {
+      background: rgba(8,18,38,0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 3rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+    }
+
+    h2 { font-size: clamp(2rem, 4.5vw, 2.4rem); font-weight: 700; color: var(--accent); margin-bottom: 1.4rem; }
+
+    #projects .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.6rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(10,22,44,0.45);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">SYNOVA</div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#">HOME</a>
+
+      <div class="nav-item">
+        <a href="#">PROJECTS</a>
+        <div class="dropdown">
+          <a href="#">SYNTIENT RECORDS</a>
+          <a href="https://lilsynnofficial.vercel.app">LIL SYNN</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">SERVICES</a>
+        <div class="dropdown">
+          <a href="#">ARTWORK</a>
+          <a href="#">ANIMATION</a>
+          <a href="#">SOFTWARE</a>
+          <a href="https://synova.base44.app">Synova</a>
+          <a href="https://hypercurrent.base44.app">HyperCurrent</a>
+          <a href="https://sonikdev.base44.app">SonikDev</a>
+          <a href="https://clairvoyantai.lovable.app">clAIrvoyant</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">CONTACT</a>
+        <div class="dropdown">
+          <a href="https://x.com/SynovaMedia">𝕏 (X / Twitter)</a>
+          <a href="https://www.facebook.com/profile.php?id=61573233625684">Facebook</a>
+          <a href="https://discord.gg/yJrKFqbJ">Discord</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <h1>Synova Media</h1>
+    <p class="tagline">Illuminating the Edge of Creativity & Technology</p>
+    <p class="sub">Fusing advanced software, real-time insights, multimedia creation, and bold artistic projects to redefine digital expression.</p>
+    <div id="countdown">Enough drops in: calculating…</div>
+    <a href="#projects" class="btn">EXPLORE PLATFORMS</a>
+  </section>
+
+  <main>
+    <section id="vision" class="glass">
+      <h2>Our Vision</h2>
+      <p>Synova Media pioneers platforms that empower creators — from cutting-edge AI tool discovery and live platform analytics, to sonic development, multidimensional insight engines, and independent music under SYNTIENT RECORDS. Technology meets imagination. Neon forward.</p>
+    </section>
+
+    <section id="projects" class="glass">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <div>
+            <h3>SYNTIENT RECORDS</h3>
+            <p>Independent label spotlighting emerging talent. Home to Lil Synn — upcoming album 'Enough' (February 17, 2026), latest track 'Ties Remain'.</p>
+          </div>
+          <a href="https://lilsynnofficial.vercel.app" class="btn">View Artist</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Synova</h3>
+            <p>AI Tools & Playlists Hub: Discover top generators + curated AI-generated music playlists and weekly subscriptions.</p>
+          </div>
+          <a href="https://synova.base44.app" class="btn">Visit</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>HyperCurrent</h3>
+            <p>Real-time TikTok intelligence: Downdetector reports, uninstall rates, RPM, glitches, ownership shifts. 15-min refresh.</p>
+          </div>
+          <a href="https://hypercurrent.base44.app" class="btn">Monitor</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>SonikDev</h3>
+            <p>Sonic creation platform (login required via Google/Microsoft/Facebook).</p>
+          </div>
+          <a href="https://sonikdev.base44.app" class="btn">Enter</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>clAIrvoyant</h3>
+            <p>Multidimensional Psychic Intelligence: 57 systems (Astrology, Tarot, Numerology, Palmistry, Karmic Insight & more) — 10,000 free credits on signup.</p>
+          </div>
+          <a href="https://clairvoyantai.lovable.app" class="btn">Begin Journey</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu ONLY when clicking a final sub-link (not dropdown parents)
+    document.querySelectorAll('.dropdown a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Dropdown toggle on mobile (click parent to expand/collapse)
+    document.querySelectorAll('.nav-item > a').forEach(item => {
+      item.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault(); // prevent navigation on parent click
+          const parent = item.parentElement;
+          // Close other open dropdowns
+          document.querySelectorAll('.nav-item.open').forEach(p => {
+            if (p !== parent) p.classList.remove('open');
+          });
+          parent.classList.toggle('open');
+        }
+      });
+    });
+
+    // Close all dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!e.target.closest('.nav-item')) {
+          document.querySelectorAll('.nav-item.open').forEach(p => p.classList.remove('open'));
+        }
+      }
+    });
+
+    // Countdown
+    const target = new Date('February 17, 2026 00:00:00').getTime();
+    function updateCountdown() {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = 'Enough has dropped.';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      document.getElementById('countdown').textContent = `Enough drops in: ${d}d ${h}h ${m}m`;
+    }
+    setInterval(updateCountdown, 30000);
+    updateCountdown();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
