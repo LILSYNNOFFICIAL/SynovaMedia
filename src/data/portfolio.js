@@ -20,7 +20,7 @@ export const ventures = [
     id: "syntient", number: "01", eyebrow: "MUSIC & ENTERTAINMENT",
     title: "SYNTIENT RECORDS",
     description: "An independent record label and creative home for original music, artists, and releases.",
-    icon: Disc3, href: "https://lilsynn.com", linkLabel: "Explore the label"
+    icon: Disc3, href: "https://syntientrecords.com", linkLabel: "Explore the label"
   },
   {
     id: "technology", number: "02", eyebrow: "SOFTWARE & INTELLIGENCE",
@@ -72,6 +72,16 @@ export const technologyProjects = [
     name: "SonikDev", category: "SONIC DEVELOPMENT",
     description: "A sonic creation platform in the SynovaMedia project collection.",
     icon: Network, href: "https://sonikdev.base44.app", status: "Explore project"
+  },
+  {
+    name: "Synova", category: "AI TOOLS & DISCOVERY",
+    description: "An AI tools and creative discovery experience in the SynovaMedia collection.",
+    icon: Cpu, href: "https://synova.base44.app", status: "Explore project"
+  },
+  {
+    name: "clAIrvoyant", category: "GENERATIVE AI",
+    description: "An experimental AI project exploring symbolic systems and generative interpretation.",
+    icon: ScanEye, href: "https://clairvoyantai.lovable.app", status: "Explore project"
   }
 ];
 
