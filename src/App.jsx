@@ -130,7 +130,7 @@ function Ecosystem() {
           {ventures.map((venture) => {
             const Icon = venture.icon;
             return (
-              <article className="venture-card glass-panel" id={venture.id} key={venture.id}>
+              <article className="venture-card glass-panel" id={venture.id === "syntient" ? "syntient" : undefined} key={venture.id}>
                 <div className="venture-card-top"><span>{venture.number} / 04</span><span className="venture-icon"><Icon size={20} strokeWidth={1.4} /></span></div>
                 <div className="venture-card-body"><p className="card-eyebrow">{venture.eyebrow}</p><h3>{venture.title}</h3><p>{venture.description}</p></div>
                 <a className="text-link" href={venture.href}>{venture.linkLabel}<ArrowUpRight size={15} /></a>
